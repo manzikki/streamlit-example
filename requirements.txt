@@ -2,6 +2,7 @@ altair
 pandas
 streamlit
 chromadb
+pysqlite3-binary
 colorama
 langchain
 openai
@@ -10,4 +11,3 @@ python-dotenv
 requests
 streamlit-chat
 tiktoken
-streamlit-chromadb-connection
