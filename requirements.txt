@@ -10,3 +10,4 @@ python-dotenv
 requests
 streamlit-chat
 tiktoken
+streamlit-chromadb-connection
