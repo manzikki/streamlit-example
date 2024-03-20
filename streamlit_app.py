@@ -1,14 +1,50 @@
-import altair as alt
-import numpy as np
-import pandas as pd
 import streamlit as st
+import openai
+import os
+from main import query
 
-"""
-# Welcome to Streamlit!
+openai.api_key = st.secrets["OPENAI_API_KEY"]
+MODEL_ENGINE = "gpt-3.5-turbo"
 
-Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:.
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
+st.title("🤖 CSII Chatbot App")
+chat_placeholder = st.empty()
 
-In the meantime, below is an example of what you can do with just a few lines of code:
-"""
+
+def init_chat_history():
+    if "messages" not in st.session_state:
+        st.session_state["messages"] = []
+        st.session_state.messages = [
+            {"role": "system", "content": "You are a helpful assistant."}
+        ]
+
+
+def start_chat():
+    # Display chat messages from history on app rerun
+    with chat_placeholder.container():
+        for message in st.session_state.messages:
+            if message["role"] != "system":
+                with st.chat_message(message["role"]):
+                    st.markdown(message["content"])
+
+    # Accept user input
+    if prompt := st.chat_input("Please ask about CSII!"):
+        # Add user message to chat history
+        st.session_state.messages.append({"role": "user", "content": prompt})
+
+        # Display user message in chat message container
+        with st.chat_message("user"):
+            st.markdown(prompt)
+
+        # Generate response from Chat models
+        response = query(prompt)
+
+        # message_placeholder.markdown(response)
+        with st.chat_message("assistant"):
+            st.markdown(response)
+        # Add assistant's response to chat history
+        st.session_state.messages.append({"role": "assistant", "content": response})
+
+
+if __name__ == "__main__":
+    init_chat_history()
+    start_chat()
