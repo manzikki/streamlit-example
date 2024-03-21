@@ -80,3 +80,7 @@ def query(query):
     retriever = load_embeddings(documents, query)
     response = generate_response(retriever, query)
     return response
+
+if __name__ == "__main__":
+    q = input("Please ask something.. ")
+    print(query(q))
