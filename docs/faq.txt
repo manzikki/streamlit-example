@@ -16,3 +16,14 @@ How many students study at CSII?
 * The yearly intake is 100 students. It is a four year program so altogether around 400.
 What kind of resources does CSII have?
 * CSII has an IoT and robotics lab, an AI lab, study rooms, classrooms and a large auditorium.
+What kind of General Education courses are there?
+* Justice, Intellectual Property, Stakeholder Engagement, Science and Mathematics, Languages, Communication, and Prototype Design and Development.
+What are the specializations at CSII?
+* Health and Wellbeing, Smart Cities, Sustainable Development, and Applied Digital Intelligence.
+Who teaches marketing?
+* Dr. Pietro Borsano
+Who teaches Mathematics at SCII?
+*  Dr. Poomjai Nacaskul
+What do BAScii students use to study and do homework?
+* ChatGPT and Canva pro
+
